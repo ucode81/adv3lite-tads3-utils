@@ -37,6 +37,10 @@
 #define DESCR_WORD_ADJORNOUN 12
 #define DESCR_WORD_PURGEHARD 13
 
+/* per Eric Eve suggestion to reduce unnecessary warnings */
+property brightness;
+property ignore_nouns;
+
 /*
  *   This section handles parsing up the output messages from a room description.
  *
@@ -62,7 +66,7 @@ checkDescrObjTokenizer: Tokenizer
         ['word', R'<AlphaNum>(<AlphaNum>|([-\']<AlphaNum>))*', tokWord, &tokCvtLower, nil],
         
         // handle , as a separate item for conversations
-        ['punc', R'[-.,;:?&!_%()<>{}*/+]+', tokPunct, nil, nil],
+        ['punc', R'([-.,;:?&!_%()<>{}*/+]|<lsquare>|<rsquare>)+', tokPunct, nil, nil],
         
         /* 
          *   Single-quoted and double-quoted strings are NOT searched for nouns for now
