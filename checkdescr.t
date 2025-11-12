@@ -38,7 +38,6 @@
 #define DESCR_WORD_PURGEHARD 13
 
 /* per Eric Eve suggestion to reduce unnecessary warnings */
-property brightness;
 property ignore_nouns;
 
 /*
@@ -432,7 +431,6 @@ checkDescrObj: object
     {
         local olocn = gPlayerChar.location;
         local olit = gPlayerChar.isLit;
-        local oldBrightness = gPlayerChar.brightness;
         
         if (room == nil || !room.ofKind(Room))
             return nil;
@@ -446,7 +444,6 @@ checkDescrObj: object
                 // future planning for execution
                 gPlayerChar.moveInto(room);
                 gPlayerChar.isLit = true;   // pretend this is the light source
-                gPlayerChar.brightness = 4;
             } catch (Exception ex) {
                 // Ignore - might not be able to move here
                 "ERROR: Cannot enter room <<room.roomTitle>>\n";
@@ -593,7 +590,6 @@ checkDescrObj: object
         // move player back and restore their original values
         gPlayerChar.moveInto(olocn);
         gPlayerChar.isLit = olit;
-        gPlayerChar.brightness  = oldBrightness;
         return true;
     }
 
