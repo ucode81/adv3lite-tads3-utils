@@ -623,6 +623,9 @@ checkDescrObj: object
         
         // Check each standard direction property
         local dlist = dirs.keysToList();
+        // these are legal as well just not always really directions for word analysis
+        dlist += &out;
+        dlist += &in;
         local osayflag = captureSayText;
         captureSayText = true;
         foreach (local dirProp in dlist) {
