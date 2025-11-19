@@ -18,7 +18,7 @@ Key to the way works are the `PuzzleSolution` definitions provided by the game d
 Class properties
 - `where` is a Room, Region, or list of Rooms and Regions (using [] list notation) where this puzzle can be solved.  By default, a puzzle can be solved anywhere.
 - `holding` is a Thing that must be held by the player (directly or indirectly).  It can be one Thing or a list of Things (using [] list notation).  By default, the player does not need to be holding anything.
-- `visible`
+- `visible` is a Thing that must be in the Room but NOT held by the player.  It can be one Thing or a list of Things (using [] list notation).  By default, nothing needs to be in the room.
     // what needs to be absent from the room (and player as well)
     absent = nil
     // what scene needs to be active (or any scene if nil)
